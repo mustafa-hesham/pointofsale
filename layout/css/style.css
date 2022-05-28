@@ -1,0 +1,115 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.navbar{
+    margin: 50px;
+}
+
+.center form{
+    width: 60%;
+    margin-left: 50px;
+    overflow: hidden;
+}
+
+.center button{
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+}
+
+
+#productImage{
+    width: 250px;
+    height: 250px;
+    margin: 60px;
+    border: 3px;
+    border-color: rgb(120, 117, 117);
+    border-style: solid;
+    padding: 20px;
+}   
+
+#productImageCard{
+    width: 100px;
+    height: 100px;
+}
+
+.card{
+    margin: 5px;
+    width: 15rem;
+}
+
+#searchProductName, #searchProductNameInvoice, #searchProviderName{
+    background-color: beige;
+    border-style: dashed;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    font-weight: bold;
+}
+
+#searchProductNameWarning{
+    margin: auto;
+    text-align: center;
+}
+
+.center #AdditionSuccess{
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#invoiceAddForm, #invoiceSearchForm, #returnItemForm{
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 90%;
+    overflow: hidden;
+}
+
+#invoiceSubmit, #recallInvoice, #invoiceUpdate{
+    display: block;
+    margin-bottom: 30px;
+    border: 3px;
+    border-color: aqua;
+    border-spacing: 10px;
+    display: inline-block;
+    align-items: center;
+}
+
+.invoiceRecallPopup{
+    position: absolute;
+    padding-top: 20px;
+    top: -150%;
+    left: 10%;
+    width: 80%;
+    opacity: 0;
+    box-shadow: 2px, 2px, 15px, 15px rgba(0, 0, 0, 0.15);
+    background: rgb(234, 231, 231);
+}
+
+.invoiceRecallPopup.active{
+    top: 30%;
+    opacity: 1;
+}
+
+.invoiceRecallPopup .closeBtn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    line-height: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
