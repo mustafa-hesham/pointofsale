@@ -263,8 +263,8 @@ class Product{
                 $productInfo[]      = $searchQueryResult->fetch_assoc();
             }
         }
-        return json_encode($productInfo);
         $conn->connectDB()->close();
+        return json_encode($productInfo);
     }
 
 }
