@@ -2,11 +2,11 @@
     include 'init.php';
     include_once $classes.'myAutoloader.php';
     include $generalFunctions.'generalFunctions.php';
-    include $navbar;
     global $target_file;
     $_SESSION['duplicateProductName']   = false;
     $_SESSION['duplicatebarcode']       = false;
     $_SESSION['successfullUpdate']      = false;
+    $_SESSION['imageErrors']            = array();
 
     if (isset($_POST['editproductSubmit']) && Product::getProductByName($_SESSION['productName']) != null){
         $productObj         = new Product($_POST['productName'], floatval($_POST['price']), $_FILES['productImage']['name'], $_POST['barcode']);
@@ -44,7 +44,7 @@
                 uploadImage($productImage, $_FILES['productImage'], $GLOBALS['target_file'], $_POST['productName'], $_POST['price']);
                 $productObj->setImagePath($GLOBALS['target_file']);
             }
-            if (count($_SESSION['imageErrors']) == 0){
+            if (!count($_SESSION['imageErrors'])){
                 $productObj->updateProduct($oldProductobj->getID());
                 $_SESSION['successfullUpdate'] = true;
                 emptySessionVariables();
@@ -67,12 +67,4 @@
         unset($_SESSION['imageName']);
         unset($_FILES['productImage']);
     }
-    
-
-
-
-
-
-
 ?>
-
