@@ -1,5 +1,5 @@
 <?php
-$folderName = '/training/';
+$folderName = '/';
 require_once("{$_SERVER['DOCUMENT_ROOT']}{$folderName}router.php");
 
 // ##################################################
@@ -13,7 +13,7 @@ require_once("{$_SERVER['DOCUMENT_ROOT']}{$folderName}router.php");
 //### GET ###//
 
 //Product routes
-get('/training', 'index.php');
+get('/', 'index.php');
 get($folderName.'addproduct', 'apps/product/addProduct.php');
 get($folderName.'productaddition', 'apps/product/productAddition.php');
 get($folderName.'editproduct', 'apps/product/editProduct.php');
