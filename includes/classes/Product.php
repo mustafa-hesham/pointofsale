@@ -240,7 +240,7 @@ class Product{
 
     public static function getProductInfo($searchparameter){
         $conn                = new connect();
-        $productInfo        = array();
+        $productInfo         = array();
         if (!is_numeric($searchparameter)){
             $searchQuery        = "SELECT * from product WHERE name LIKE '$searchparameter%' LIMIT 5";
             $searchQueryResult  = $conn->connectDB()->query($searchQuery);
@@ -250,26 +250,22 @@ class Product{
                     $productInfo[] = $row;
                     }
                 }
-            return json_encode($productInfo);
         }
         else{
             $searchQuery        = "SELECT * from product WHERE barcode='$searchparameter'";
             $searchQueryResult  = $conn->connectDB()->query($searchQuery);
             if ($searchQueryResult->num_rows > 0){
                 $productInfo[]  = $searchQueryResult->fetch_assoc();
-                return json_encode($productInfo);
             }
             else{
                 $searchQuery        = "SELECT * from product WHERE ID='$searchparameter'";
                 $searchQueryResult  = $conn->connectDB()->query($searchQuery);
                 $productInfo[]      = $searchQueryResult->fetch_assoc();
-                return json_encode($productInfo);
             }
-            $conn->connectDB()->close();
         }
+        return json_encode($productInfo);
         $conn->connectDB()->close();
-        
     }
 
-    }
+}
 ?>
