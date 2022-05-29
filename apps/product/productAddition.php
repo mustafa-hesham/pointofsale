@@ -2,7 +2,6 @@
     include 'init.php';
     include_once $classes.'myAutoloader.php';
     include $generalFunctions.'generalFunctions.php';
-    include $navbar;
     global $target_file;
     $_SESSION['duplicateProductName']   = false;
     $_SESSION['duplicatebarcode']       = false;
@@ -39,7 +38,7 @@
             }
             else setSessionVariables();
         }
-        header("Location: /training/addproduct");
+        header("Location:addproduct");
 
     }
 
@@ -57,8 +56,4 @@
         $GLOBALS['target_file']     = '';
         $_SESSION['errorMessages']  = true;
     }
-
-?>
-<?php
-include $tpl."footer.php";
 ?>
